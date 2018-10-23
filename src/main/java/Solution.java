@@ -4,7 +4,7 @@ import java.util.Map;
 public class Solution {
 
     public static void main(String[] args) {
-        System.out.println(new Solution().lengthOfLongestSubstring("abba"));
+        System.out.println(new Solution().myAtoi("  -1234 1234www"));
     }
 
     /**
@@ -55,6 +55,10 @@ public class Solution {
         return s == null || s.equals("");
     }
 
+    private boolean isTrimEmpty(String s) {
+        return s == null || s.trim().equals("");
+    }
+
     /**
      * 题5：最长回文子串
      * <p>
@@ -100,6 +104,58 @@ public class Solution {
         }
 
         return s.substring(lo, hi + 1);
+    }
+
+    /**
+     * 题8：字符串转整数
+     *
+     * @param str 字符串
+     * @return 整数
+     */
+    public int myAtoi(String str) {
+        if (isTrimEmpty(str)) {
+            return 0;
+        }
+
+        boolean spaceArea = true;
+        boolean firstNonSpaceChar = false;
+        boolean positive = true;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i <= str.length() - 1; i++) {
+            char ch = str.charAt(i);
+            if (!spaceArea || !Character.isSpace(ch)) {
+                spaceArea = false;
+                if (!firstNonSpaceChar) {
+                    firstNonSpaceChar = true;
+                    if (ch != '+') {
+                        if (ch == '-') {
+                            positive = false;
+                        } else if (Character.isDigit(ch)) {
+                            sb.append(ch);
+                        } else {
+                            return 0;
+                        }
+                    }
+                } else {
+                    if (Character.isDigit(ch)) {
+                        sb.append(ch);
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (isTrimEmpty(sb.toString())) {
+            return 0;
+        }
+
+        try {
+            int val = Integer.parseInt(sb.toString());
+            return positive ? val : -val;
+        } catch (Exception e) {
+            return positive ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+        }
     }
 
 }
