@@ -210,7 +210,7 @@ public class Solution {
                     result.add(b);
                     result.add(c);
                     result.sort((o1, o2) -> {
-                        if (o1 == o2) return 0;
+                        if (o1.equals(o2)) return 0;
                         return o1 - o2;
                     });
                     resultList.add(result);
@@ -220,8 +220,7 @@ public class Solution {
         }
 
         // 对结果List去重
-        Set<List<Integer>> filterSet = new LinkedHashSet<>();
-        filterSet.addAll(resultList);
+        Set<List<Integer>> filterSet = new LinkedHashSet<>(resultList);
 
         return new ArrayList<>(filterSet);
     }
