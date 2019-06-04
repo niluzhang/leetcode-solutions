@@ -181,9 +181,12 @@ public class Solution {
             }
         }
 
+        // 保存结果
         List<List<Integer>> resultList = new ArrayList<>();
 
+        // 保存去除多余数字后的剩余数字
         List<Integer> linkedList = new LinkedList<>();
+
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             Integer number = entry.getKey();
             Integer times = entry.getValue();
