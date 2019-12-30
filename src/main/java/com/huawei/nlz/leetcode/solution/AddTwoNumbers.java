@@ -13,6 +13,13 @@ package com.huawei.nlz.leetcode.solution;//给出两个 非空 的链表用来�
 // Related Topics 链表 数学
 
 public class AddTwoNumbers {
+    /**
+     * 题2：两数相加
+     *
+     * @param l1 代表一个非负整数的链表
+     * @param l2 代表一个非负整数的链表
+     * @return 相加结果
+     */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         if (l1 == null || l2 == null) {
             return l1 == null ? copyOfList(l2) : copyOfList(l1);
