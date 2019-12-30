@@ -19,6 +19,13 @@ import java.util.Collections;
 import java.util.List;
 
 public class Combinations {
+    /**
+     * 题77 组合。
+     *
+     * @param n n
+     * @param k k
+     * @return 从1到n里取k个数的所有组合
+     */
     public List<List<Integer>> combine(int n, int k) {
         int[] arr = new int[n];
         for (int i = 1; i <= n; i++) arr[i - 1] = i;
