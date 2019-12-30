@@ -14,6 +14,13 @@ package com.huawei.nlz.leetcode.solution;//给定两个二进制字符串，返�
 // Related Topics 数学 字符串
 
 public class AddBinary {
+    /**
+     * 题67：二进制求和
+     *
+     * @param a 二进制字符串
+     * @param b 二进制字符串
+     * @return 相加结果
+     */
     public String addBinary(String a, String b) {
         StringBuilder ans = new StringBuilder();
         int ca = 0;
